@@ -3,8 +3,7 @@
 #include"Core.h"
 
 namespace Cigma {
-	class CGA_API Application
-	{
+	class CGA_API Application{
 	public:
 		Application();
 		virtual ~Application();
