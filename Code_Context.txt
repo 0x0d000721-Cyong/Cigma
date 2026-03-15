@@ -1,0 +1,124 @@
+﻿================================================================
+File Path: Cigma\src\Cigma\Application.cpp
+================================================================
+```cpp
+#include "Application.h"
+
+namespace Cigma {
+	Application::Application() {
+
+	}
+
+	Application::~Application() {
+
+	}
+
+	void Application::Run() {
+		while (true);
+	}
+}
+```
+
+================================================================
+File Path: Cigma\src\Cigma\Application.h
+================================================================
+```h
+#pragma once
+	
+#include"Core.h"
+
+namespace Cigma {
+	class CGA_API Application{
+	public:
+		Application();
+		virtual ~Application();
+
+		void Run();
+	};
+
+	//To be defined in CLIENT
+
+	Application* CreateApplication();
+
+}
+```
+
+================================================================
+File Path: Cigma\src\Cigma\Core.h
+================================================================
+```h
+#pragma once
+
+#ifdef CGA_PLATFORM_WINDOWS
+	#ifdef CGA_BUILD_DLL
+		#define CGA_API __declspec(dllexport)
+	#else
+		#define CGA_API __declspec(dllimport)
+	#endif
+#else 
+	#error Cigma only support windows !
+#endif
+
+```
+
+================================================================
+File Path: Cigma\src\Cigma\EntryPoint.h
+================================================================
+```h
+#pragma once
+
+#ifdef CGA_PLATFORM_WINDOWS
+
+extern Cigma::Application* Cigma::CreateApplication();
+
+int main(int argc, char** argv) {
+
+	auto app = Cigma::CreateApplication();
+	app->Run();
+	delete app;
+
+}
+
+#endif
+
+```
+
+================================================================
+File Path: Cigma\src\Cigma.h
+================================================================
+```h
+#pragma once
+
+//For use by Cigma application
+
+#include"Cigma/Application.h"
+
+
+//-----------Entry Point----------------
+#include"Cigma/EntryPoint.h"
+//--------------------------------------
+```
+
+================================================================
+File Path: Sandbox\src\Sandbox.cpp
+================================================================
+```cpp
+#include"Cigma.h"
+
+class Sandbox : public Cigma::Application {
+public:
+	Sandbox() {
+
+	}
+
+	~Sandbox() {
+
+	}
+
+};
+
+Cigma::Application* Cigma:: CreateApplication() {
+	return new Sandbox();
+}
+```
+
