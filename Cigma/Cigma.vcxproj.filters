@@ -27,9 +27,15 @@
     <ClInclude Include="src\Cigma\EntryPoint.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cigma\Log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cigma\Application.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cigma\Log.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

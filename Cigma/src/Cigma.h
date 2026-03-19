@@ -8,5 +8,7 @@
 
 
 //-----------Entry Point----------------
+#include "Cigma/Log.h"
+
 #include"Cigma/EntryPoint.h"
 //--------------------------------------
